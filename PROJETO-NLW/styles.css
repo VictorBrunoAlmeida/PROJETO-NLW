@@ -1,0 +1,197 @@
+* {                                     /* essa linha de código serviu para tiras as limitações de tamanho e espaços que o próprio navegador limitar */
+    margin: 0;                      
+    padding: 0;                         /* preenchimento interno */
+    box-sizing: border-box;
+}
+
+
+ul{
+    list-style: none;           /* tirando os pontinhos pretos de marcação do html */
+}
+
+
+
+body {                                      /* ajustando primeiro e suas características da imagem para todo o conteúdo */
+    background-image: url(./Assets/bg.jpg);     /* serve para adicionar a imagem do css utilizando a função url() */
+    background-position: top center;                /* serve para arrumar para centralizar a imagem de fundona tela e ela acompanhar  */ 
+    background-size: 100% auto;                          /* o 100% serve para regulagem da largura de 100% da tela o segundo a regulagem automática da altura da imagem an tela*/
+    background-repeat: no-repeat;                              /* deixa a tela utilizando 100% da imagem para ela n se repetir várias vezes na tela */
+    background-color: #121314;                                      /* cor de fundo complementar */
+} 
+
+
+body * { 
+font-family: 'Inter', sans-serif;                  /* fonte do texto todo */
+line-height: 160%;                       /*  distância de altura entre os títulos h2 e p */
+}
+
+
+header {
+    padding-top: 32px ;
+    height: calc(120px + 32px);
+    
+    /* text-align: center;  */       /*  todo conteúdo identificado como propriedade de texto ele consegue alinhar ao centro, lembrando que a img svg é em htm */
+
+}
+
+
+header div {
+    width: 120px;
+    margin: auto ; 
+    
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    border-radius: 50%;
+    
+    display: flex;          /* uso bem específico do display flex pois eu só tinha uma img, então conseguia se organizar sozinho */
+    padding: 4px;
+
+    transition: transform .3s;          /* .3s seria 300 milisegundos */ /* EFEITOS DE TRANSIÇÃO DO CSS(QUANDO EU PASSO O MOUSE EM CIMA DA IMAGEM ELA AUMENTA) */
+
+}
+
+header div:hover{               /* EFEITOS DE TRANSIÇÃO DO CSS(QUANDO EU PASSO O MOUSE EM CIMA DA IMAGEM ELA AUMENTA) */
+    transform: scale(1.1); 
+}
+
+
+header div img{
+    width: 100%;
+    border-radius: 50%;
+
+}
+
+
+
+main {                          /* ajustando as sections(lembrar que main é o conteúdo mais importante) */
+    max-width: 580px;                   /* largura total da imagem */
+    width: 90%;                                /* ajustando a largura do main */
+    margin: 32px auto;                                 /*  margem automática quando só tem auto e um só elemento. */
+                                                       /*quando o margin tem dois valores ex: 32px auto o primeiro contra como o espaçamento de cima e o de baixo e o segundo com o de baixo.*/ 
+
+    display: grid;                          
+    gap: 24px;                         /*  distância entre os cards  */
+
+    margin-top: 32px;                       /* margem no topo */
+
+}
+
+
+section {
+    color: white;                   /* cor da fonte principal meus jogos */
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);/*quando eu preciso de multiplas cores na bordar section, eu preciso usar o background image e usar a função linear gradient, que vai definir angulação e depois as cores*/ 
+    
+    padding-top: 4px;                           /* preenchimento para dar um espaçamento no topo */
+    border-radius: 10px;                       /*  borda arredondada */
+}
+
+     
+
+section div{
+    background-color: #2A2634;
+    padding: 32px;      /*preenchimento para dar um espaçamento */
+    padding-top: 24px;
+    border-radius: 8px;
+}
+
+
+section h2{        /* eu posso adicionar o h2 na frente para o section procurar todos os h2 que tiverem no codigo e editar as fontes sozinho */  
+    letter-spacing: -0.47px;            /* espaçamento entre as letras propriamente ditas*/
+}
+
+
+section p{
+    letter-spacing: -0.18px;
+    color: #A1A1AA;               
+}
+
+
+section ul{
+    display:flex ;         /* diferente do block, que tem a ver com as caixas html que estão uma a baixo da outra, o displayy flexx tem a ver com as caixas DENTRO das outras */
+    flex-wrap: wrap;        /*essa função serve para quando eu botar mais de 3 itens no ul, ele joga os itens pra baixo ao invés de empurrar todos eles para a direita*/
+    gap: 16px; 
+    margin-top: 24px;  /* espaço do topo da margem */
+
+}
+
+section ul li{
+    transition: transform .3s;
+}
+
+section ul li:hover{
+    transform: scale(1.1)
+}
+
+
+.Games-list img {           /* o .Games faz uma menção a class da ul */
+    width: 90px;           /*  largura da imagem */
+    border-radius: 18px;   /* arredondamento da borda */
+}
+
+
+.Channel-list img {        
+    width: 70px;        
+    border-radius: 50%;
+    border: 1px solid #443E54;
+}
+
+
+ 
+
+/* EFEITOS DE ANIMAÇÃO DO CSS */
+
+
+header div{ 
+    animation: fromtop .7s .4s backwards;       /* essa header foi adicionada só para n ficar muito poluido lá em cima. são .7s(milisegundos) de duração da imagem e 2s de delay o backwards serve para puxar a animação para poder começar*/ 
+}
+
+
+main section { 
+        animation: frombottom .7s backwards; /* .7s de tempo de animação e .4s backwards de delay para a animação aparecer*/
+}
+
+
+main section:nth-child(1){              /* função disso: main, pega o section, filho numero 1 */
+    animation-delay: .0s;
+}
+
+
+main section:nth-child(2){
+    animation-delay: .4s;
+}
+
+
+main section:nth-child(3){
+    animation-delay: .8s;   
+}
+
+
+@keyframes frombottom { 
+    from{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+
+    to{
+        opacity: 1;
+        transform: translateY(0)
+    }
+    
+}
+
+@keyframes fromtop {            /* fromtop é um nome qualquer adicionado a animação */
+    from{
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+
+    to{
+        opacity: 1;
+        transform: translateY(0)        /* mover para 0 pq ele vai terminar onde ele já está */
+    
+
+    }
+
+    
+}
